@@ -1,0 +1,176 @@
+>> t = linspace (0, 6*pi, 50);
+>> r = 2:
+error: parse error:
+
+  syntax error
+
+>>> r = 2:
+         ^
+>> r = 2;
+>> x = r * (t - sin(t));
+>> y = r * (1 - cos(t));
+>> plot(x, y)
+>> axis('equal');
+>> axis([0 12*pi 0 4])
+>> savefig cycloid.pdf
+>> savefig cycloid.png
+>> clear
+>> theta = linspace(0, 2*pi, 100);
+>> r = 1 - 2*sin(theta);
+>> x = r .* cos(theta)
+x =
+
+ Columns 1 through 9:
+
+   1.000000   0.871394   0.740807   0.610266   0.481752   0.357163   0.238289   0.126780   0.024124
+
+ Columns 10 through 18:
+
+  -0.068378  -0.149632  -0.218763  -0.275133  -0.318345  -0.348250  -0.364944  -0.368768  -0.360299
+
+ Columns 19 through 27:
+
+  -0.340335  -0.309883  -0.270139  -0.222468  -0.168372  -0.109472  -0.047474   0.015862   0.078751
+
+ Columns 28 through 36:
+
+   0.139418   0.196124   0.247204   0.291091   0.326349   0.351695   0.366025   0.368434   0.358232
+
+ Columns 37 through 45:
+
+   0.334961   0.298399   0.248574   0.185758   0.110471   0.023470  -0.074259  -0.181517  -0.296905
+
+ Columns 46 through 54:
+
+  -0.418852  -0.545635  -0.675405  -0.806221  -0.936073  -1.062920  -1.184723  -1.299472  -1.405225
+
+ Columns 55 through 63:
+
+  -1.500134  -1.582480  -1.650700  -1.703411  -1.739437  -1.757824  -1.757865  -1.739103  -1.701349
+
+ Columns 64 through 72:
+
+  -1.644682  -1.569452  -1.476274  -1.366025  -1.239828  -1.099039  -0.945227  -0.780151  -0.605737
+
+ Columns 73 through 81:
+
+  -0.424047  -0.237251  -0.047594   0.142638   0.331149   0.515668   0.693985   0.863980   1.023655
+
+ Columns 82 through 90:
+
+   1.171165   1.304841   1.423219   1.525058   1.609355   1.675364   1.722601   1.750852   1.760172
+
+ Columns 91 through 99:
+
+   1.750886   1.723575   1.679073   1.618447   1.542979   1.454145   1.353591   1.243103   1.124579
+
+ Column 100:
+
+   1.000000
+
+>> clear
+>> theta = linspace(0, 2*pi, 100);
+>> r = 1 - 2*sin(theta);
+>> x = r .* cos(theta);
+>> y = r .* sin(theta);
+>> plot(x, y)
+>> savefig limacon.pdf
+>> savefig limacon.png
+>> polar(theta, r)
+>> savefig limacon-polar.pdf
+>> savefig limacon-polar.png
+>> clear
+>> f = @(x,y) -x .^ 2 - x .* y + x + y .^ 2 - y - 1
+f =
+
+@(x, y) -x .^ 2 - x .* y + x + y .^ 2 - y - 1
+
+>> ezplot(f)
+>> savefig impl1.pdf
+>> savefig impl1.png
+>> clear
+>> f = @(x,y) (x - 2) .^ 2 + y .^ - 25
+f =
+
+@(x, y) (x - 2) .^ 2 + y .^ -25
+
+>> ezplot(f, [-6 10 -8 8])
+>> x = [-6:10];
+>> y = 3/4 * x + 19/4;
+>> hold on
+>> plot(x, y, 'r--')
+>> clear
+>> f = @(x,y) (x - 2) .^ 2 + y .^ 2 - 25
+f =
+
+@(x, y) (x - 2) .^ 2 + y .^ 2 - 25
+
+>> ezplot(f, [-6 10 -8 8])
+>> x = [-6:10];
+>> y = 3/4 * x + 19/4;
+>> hold on
+>> plot(x, y, 'r--')
+>> savefig impl2.pdf
+>> savefig impl2.png
+>> clear
+>> z1 = 1 + 2*i
+z1 =  1 + 2i
+>> z2 = 2 - 3*i
+z2 =  2 - 3i
+>> z1+z2
+ans =  3 - 1i
+>> z1-z2
+ans = -1 + 5i
+>> z1*z2
+ans =  8 + 1i
+>> z1/z2
+ans = -0.3077 + 0.5385i
+>> clf
+>> z1 = 1 + 2*i;
+>> z2 = 2 - 3*i;
+>> compass(z1, 'b')
+>> hold on
+>> compass(z2, 'r')
+>> compass(z1+z2, 'k--')
+>> legend('z_1', 'z_2', 'z_1+z_2')
+>> savefig complex.pdf
+>> savefig complex.png
+>> clear
+>> (-8)^(1/3)
+ans =  1.0000 + 1.7321i
+>> ans^3
+ans = -8.0000e+00 + 2.2204e-15i
+>> nthroot(-8,3)
+ans = -2
+>> clear
+>> n = [0:1:5];
+>> x = linspace(-5,5,500);
+>> clf
+>> plot(n, factotial(n), '*', x, gamma(x+1))
+error: 'factotial' undefined near line 1, column 9
+>> plot(n, factorial(n), '*', x, gamma(x+1))
+>> axis([-5 6 -10 25]);
+>> grid on;
+>> legend('n!', 'gamma(n+1)');
+>> savefig gamma.pdf
+>> savefig gamma.png
+>> clear
+>> clf
+>> x1 = linspace(-5, -4, 500);
+>> x2 = linspace(-4, -3, 500);
+>> x3 = linspace(-3, -2, 500);
+>> x4 = linspace(-2, -1, 500);
+>> x5 = linspace(-1, 5, 500);
+>> plot(x1, gamma(x1+1))
+>> hold on
+>> plot(x2, gamma(x2+1))
+>> plot(x3, gamma(x3+1))
+>> plot(x4, gamma(x4+1))
+>> plot(x5, gamma(x5+1))
+>> axis([-5 6 -10 25]);
+>> n = [0:1:5];
+>> plot(n, factorial(n), '*')
+>> legend('n!', "\\Gamma(n+1)")
+>> savefig gamma2.pdf
+>> savefig gamma2.png
+>> diary off
